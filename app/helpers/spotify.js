@@ -9,8 +9,25 @@ const {CLIENT_ID, CLIENT_SECRET} = process.env;
 let token;
 
 module.exports = {
+  search,
   getAccessToken
 };
+
+async function search(q) {
+  let {access_token} = await getAccessToken();
+  let {data} = await axios.get(query, {
+    params: {
+      q,
+      type: 'album'
+    },
+    headers: {
+      Accept: 'application/json',
+      Authorization: `Bearer ${access_token}`,
+      'Content-Type': 'application/json'
+    }
+  });
+  return data;
+}
 
 async function getAccessToken() {
   if (token) {
