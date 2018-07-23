@@ -16,6 +16,16 @@ Once inside the project folder take the following steps to run the project.
 ### Run NPM or Yarn Install
 `yarn install` or `npm install`
 
+### Set the Enviroment Variables
+
+To keep the credentials safe, this are not stored in the repo, they are pulled from enviroment variables, you will have to set the following variables:
+
+1. `CLIENT_ID`
+2. `CLIENT_SECRET`
+
+### Run the Project
+After the project is installed you have to run `npm run start` this will compile the project the default url for the project is `http://localhost:5000/`.
+
 ### Linting
 
 Front End `npm run lint`
