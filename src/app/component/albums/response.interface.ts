@@ -5,11 +5,6 @@ export interface Response {
   items: [Album],
   limit: number,
   next: string,
-  images: [{
-    height: number,
-    url: string,
-    width: number,
-  }],
   offset: number,
   previous: string,
   total: number
