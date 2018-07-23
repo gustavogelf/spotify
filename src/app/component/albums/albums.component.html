@@ -11,3 +11,13 @@
     <button mat-raised-button color="primary">Search</button>
   </form>
 </mat-card>
+<mat-card class="album-container" *ngFor="let album of albums;">
+  <mat-card-header class="album-header">
+    <div mat-card-avatar class="example-header-image">
+      <img width="40px" height="40px" [src]="album.images[2].url">
+    </div>
+    <mat-card-title>{{album.name}}</mat-card-title>
+    <mat-card-subtitle>{{album.release_date | date}}</mat-card-subtitle>
+    <a mat-raised-button target="_blank" [href]="album.external_urls.spotify" color="primary">Play</a>
+  </mat-card-header>
+</mat-card>

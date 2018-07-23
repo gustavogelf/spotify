@@ -10,5 +10,5 @@ async function searchAlbum(req, res, next) {
   let {query} = req;
   let response = await spotifyHelper.search(query.q).catch(next);
 
-  res.json(response);
+  res.json(response.albums);
 }
