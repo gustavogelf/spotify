@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { Response } from './response.interface';
 
 @Component({
   selector: 'app-albums',
@@ -9,15 +10,15 @@ import { DataService } from '../../services/data.service';
 export class AlbumsComponent implements OnInit {
 
   q: string;
-  albums: any;
+  albums: Response;
 
   constructor (private dataService: DataService) {}
 
   ngOnInit() {}
 
   onSubmit() {
-    this.dataService.searchAlbums(this.q).subscribe((albums) => {
-      this.albums = albums;
+    this.dataService.searchAlbums(this.q).subscribe((response: Response) => {
+      this.albums = response;
     });
   }
 
