@@ -14,19 +14,30 @@ module.exports = {
 };
 
 async function search(q) {
+  
   let {access_token} = await getAccessToken();
-  let {data} = await axios.get(query, {
-    params: {
-      q,
-      type: 'album'
-    },
-    headers: {
-      Accept: 'application/json',
-      Authorization: `Bearer ${access_token}`,
-      'Content-Type': 'application/json'
+  try {
+    let {data} = await axios.get(query, {
+      params: {
+        q,
+        type: 'album'
+      },
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${access_token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    return data;
+  } catch (err) {
+    if (err.response.status === 401) {
+      token = null;
+      return search(q);
+    } else {
+      return Promise.reject(err);
     }
-  });
-  return data;
+  }
 }
 
 async function getAccessToken() {
