@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>Search Albums</h1>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-card class="search-container">
+  <form name="search-form" class="search-form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input name="q" [(ngModel)]="q" matInput placeholder="Search">
+    </mat-form-field>
+    <button mat-raised-button color="primary">Search</button>
+  </form>
+</mat-card>
