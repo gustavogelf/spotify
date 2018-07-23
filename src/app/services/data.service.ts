@@ -10,7 +10,7 @@ export class DataService {
   url: string;
 
   constructor(public http: HttpClient) {
-    this.url = 'http://localhost:5000/api/albums';
+    this.url = '/api/albums';
   }
 
   searchAlbums(query): Observable<{}> {
