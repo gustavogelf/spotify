@@ -15,6 +15,9 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(helmet());
 
+let {searchAlbum} = require('./app/controller/spotify');
+
+app.get('/api/albums', searchAlbum);
 app.use('/', express.static(__dirname + '/dist/spotify'));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
