@@ -12,7 +12,7 @@ async function searchAlbum(req, res, next) {
   let {query} = req;
   let response = await spotifyHelper.search(query.q).catch(next);
   Promise.map(response.albums.items, function storeAlbums(album) {
-  	return Albums.updateOrCreate(album);
-  })
+    return Albums.updateOrCreate(album);
+  });
   res.json(response.albums);
 }

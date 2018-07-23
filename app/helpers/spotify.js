@@ -3,7 +3,7 @@
 const {URLSearchParams} = require('url');
 const axios = require('axios');
 const url = 'https://accounts.spotify.com/api/token';
-const query = 'https://api.spotify.com/v1/search'
+const query = 'https://api.spotify.com/v1/search';
 const {CLIENT_ID, CLIENT_SECRET} = process.env;
 
 let token;
@@ -14,7 +14,7 @@ module.exports = {
 };
 
 async function search(q) {
-  
+
   let {access_token} = await getAccessToken();
   try {
     let {data} = await axios.get(query, {

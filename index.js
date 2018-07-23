@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost:27017/reigndesign', {useNewUrlParser: true}); 
+mongoose.connect('mongodb://localhost:27017/reigndesign', {useNewUrlParser: true});
 
 const port = process.env.PORT || 5000;
 
